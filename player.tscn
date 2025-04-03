@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://b21wnamiqgxwu"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_vnp74"]
-[ext_resource type="Texture2D" uid="uid://mcd6y5u0vphg" path="res://3e95b319525d5bf5227dfcb719de8bf7.jpg" id="2_h4lgm"]
+[ext_resource type="Texture2D" uid="uid://hvxbdkgwcfb3" path="res://cowboy-clipart-004.png" id="2_miyqb"]
 [ext_resource type="Texture2D" uid="uid://chw1wugb4vvxj" path="res://4fea18945534b29901e5e5ba1cddc3a7_t.jpeg" id="3_ksxt5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d5xij"]
@@ -21,8 +21,9 @@ you_win_screen = NodePath("Camera2D/Control/WinScreen")
 you_lose_screen = NodePath("Camera2D/Control/LoseScreen")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("2_h4lgm")
+position = Vector2(-2, -1)
+scale = Vector2(0.0465792, 0.0465792)
+texture = ExtResource("2_miyqb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 0)
