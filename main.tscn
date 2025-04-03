@@ -1,0 +1,16 @@
+[gd_scene load_steps=5 format=3 uid="uid://budy48dsjq2h1"]
+
+[ext_resource type="Script" path="res://main_controller.gd" id="1_g1kys"]
+[ext_resource type="PackedScene" uid="uid://b21wnamiqgxwu" path="res://player.tscn" id="2_3ohov"]
+[ext_resource type="PackedScene" uid="uid://c2ge5c8vyttlq" path="res://level.tscn" id="3_w6yos"]
+[ext_resource type="PackedScene" uid="uid://0yrawcfrfdf3" path="res://cow.tscn" id="4_i858s"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_g1kys")
+cow_scene = ExtResource("4_i858s")
+
+[node name="Player" parent="." instance=ExtResource("2_3ohov")]
+position = Vector2(36, 144)
+
+[node name="Node2D" parent="." instance=ExtResource("3_w6yos")]
+position = Vector2(-490, 514)

@@ -1,0 +1,110 @@
+[gd_scene load_steps=7 format=3 uid="uid://b21wnamiqgxwu"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_vnp74"]
+[ext_resource type="Texture2D" uid="uid://mcd6y5u0vphg" path="res://3e95b319525d5bf5227dfcb719de8bf7.jpg" id="2_h4lgm"]
+[ext_resource type="Texture2D" uid="uid://chw1wugb4vvxj" path="res://4fea18945534b29901e5e5ba1cddc3a7_t.jpeg" id="3_ksxt5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d5xij"]
+size = Vector2(73, 80)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_cjx4x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o8ugw"]
+
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("lasso", "lasso_area_2d", "points_label", "you_win_screen", "you_lose_screen")]
+position = Vector2(1, 0)
+script = ExtResource("1_vnp74")
+lasso = NodePath("Lasso")
+lasso_area_2d = NodePath("Lasso/Area2D")
+points_label = NodePath("Camera2D/Control/PointsLabel")
+you_win_screen = NodePath("Camera2D/Control/WinScreen")
+you_lose_screen = NodePath("Camera2D/Control/LoseScreen")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_h4lgm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_d5xij")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Control" type="Control" parent="Camera2D"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="WinScreen" type="Control" parent="Camera2D/Control"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D/Control/WinScreen"]
+position = Vector2(-36, 25)
+scale = Vector2(-1648.27, 805.967)
+texture = SubResource("PlaceholderTexture2D_cjx4x")
+
+[node name="Label" type="Label" parent="Camera2D/Control/WinScreen"]
+layout_mode = 0
+offset_left = -151.0
+offset_top = -143.0
+offset_right = 315.0
+offset_bottom = 76.0
+theme_override_font_sizes/font_size = 100
+text = "You Win!"
+
+[node name="LoseScreen" type="Control" parent="Camera2D/Control"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D/Control/LoseScreen"]
+position = Vector2(-36, 25)
+scale = Vector2(-1648.27, 805.967)
+texture = SubResource("PlaceholderTexture2D_cjx4x")
+
+[node name="Label" type="Label" parent="Camera2D/Control/LoseScreen"]
+layout_mode = 0
+offset_left = -151.0
+offset_top = -143.0
+offset_right = 315.0
+offset_bottom = 76.0
+theme_override_font_sizes/font_size = 100
+text = "You Lose!"
+
+[node name="PointsLabel" type="Label" parent="Camera2D/Control"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = -103.0
+offset_top = -220.0
+offset_right = 161.0
+offset_bottom = -142.0
+theme_override_font_sizes/font_size = 47
+text = "Points: 0"
+
+[node name="HealthLabel" type="Label" parent="Camera2D/Control"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = -106.0
+offset_top = -296.0
+offset_right = 158.0
+offset_bottom = -218.0
+theme_override_font_sizes/font_size = 47
+text = "Health: 3"
+
+[node name="Lasso" type="Node2D" parent="."]
+visible = false
+
+[node name="Area2D" type="Area2D" parent="Lasso"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lasso/Area2D"]
+shape = SubResource("RectangleShape2D_o8ugw")
+
+[node name="Sprite2D" type="Sprite2D" parent="Lasso"]
+position = Vector2(40, 6)
+scale = Vector2(0.144118, 0.144118)
+texture = ExtResource("3_ksxt5")

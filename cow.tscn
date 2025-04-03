@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://0yrawcfrfdf3"]
+
+[ext_resource type="Script" path="res://cow.gd" id="1_esdro"]
+[ext_resource type="Texture2D" uid="uid://buyef6gc01scs" path="res://cow-with-wheat-in-mouth.png" id="1_l46hk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_62dih"]
+size = Vector2(199, 157)
+
+[node name="Cow" type="CharacterBody2D"]
+script = ExtResource("1_esdro")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1, -7.62939e-06)
+scale = Vector2(0.332, 0.373134)
+texture = ExtResource("1_l46hk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_62dih")
